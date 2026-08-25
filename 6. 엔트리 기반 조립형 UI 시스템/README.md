@@ -10,12 +10,11 @@ UI마다 텍스트, 이미지, 게이지와 버튼을 전용 스크립트에서 
 
 ## 데이터 전달 흐름
 
-1. 외부 시스템이 `UIViewModel`에 화면 키와 `UIViewEntryInput`을 전달합니다.
-2. `UIViewModel`은 등록된 `UIView`를 찾아 데이터를 넘기고, `UIViewController`는 열린 화면의 스택과 닫기 입력을 관리합니다.
+1. 외부 시스템이 `UIViewModel`에 동작시킬 UI인 `UIView`의 고유 키와 `UIViewEntryInput`을 전달합니다.
+2. `UIViewModel`은 고유 키에 해당하는 `UIView`를 찾아 데이터를 전달합니다.
 3. `UIView`는 자식의 Entry를 `UIViewEntrySet`으로 수집하고, 전달받은 데이터를 타입과 등록 순서에 맞는 Entry로 분배합니다.
 4. `UIEntry<T>` 구현은 자신에게 전달된 값만 실제 Unity UI 컴포넌트에 반영합니다.
-5. 데이터 수가 현재 Entry보다 많으면 지정된 UI 프리팹을 추가로 생성해 Entry를 다시 수집하고 남은 값을 이어서 적용합니다.
-6. 화면 활성화와 비활성화 시점에는 `UIViewEffect`를 통해 Fade와 Sound 같은 연출을 함께 실행합니다.
+5. 화면 활성화와 비활성화 시점에는 `UIViewEffect`를 통해 Fade와 Sound 같은 연출을 함께 실행합니다.
 
 정적으로 준비한 번역 문장과 Sprite뿐 아니라 런타임에 계산한 유닛 스탯, 게이지 값과 버튼 Action도 같은 입력 구조로 전달할 수 있습니다. 새로운 표현이 필요할 때는 `UIView`의 분기문을 늘리지 않고 해당 데이터 타입을 처리하는 Entry를 추가합니다.
 
