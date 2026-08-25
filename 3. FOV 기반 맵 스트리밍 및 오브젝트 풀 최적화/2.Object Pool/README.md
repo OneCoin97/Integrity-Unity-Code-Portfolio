@@ -12,5 +12,3 @@ FOV 갱신은 유닛 이동 중 Unity 메인 스레드에서 반복적으로 실
 
 - 'HashSetPool.cs' — 생성·제거·유지 영역 계산에 사용하는 임시 HashSet 재사용
 - 'ClassPool.cs' — FOV별 위치와 점유 좌표를 보관하는 FovStreamingState 재사용
-
-'ObjectPoolManager.Instantiate / Destroy'에서 블록 대여·반환 흐름을 확인하고, 'ClearAllData'와 반환 세대 검증을 보면 맵 전환 중 지연 반환을 차단하는 방식을 파악할 수 있습니다.
