@@ -29,7 +29,7 @@
 ## 폴더 구성
 
 - `0.Before Refactoring`: 리팩터링 이전 `GameManager` 원본
-- `1.Event Core`: 이벤트 위치 관리, 구독 등록과 해제, 실행 스냅샷과 상태 이벤트 계약
+- `1.Event Core`: 사건별 이벤트 채널 관리, 구독 등록과 해제, 실행 스냅샷과 상태 이벤트 계약
 - `2.Core Managers`: 게임 데이터, 파티, 선택과 전투 및 탐험 턴을 소유하는 책임별 관리자
 - `3.Data Subscription`: 데이터별 Listener 계약과 공통 구독 생명주기
 - `4.State Machine`: 전투와 탐험 상태 및 전이 조건. 상태는 `IGameModeEvent` 실행 계약만 전달받음

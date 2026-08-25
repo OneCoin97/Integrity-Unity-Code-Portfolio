@@ -12,6 +12,6 @@
 
 - `SaveDataPool.cs` — 파이프라인에서 반복 생성되는 `SaveData`를 재사용하고 진행 중인 작업 수를 관리
 
-읽는 순서는 `SerializeStage` → `WriteStage` → `SaveData`입니다. `SaverManager.saveAll()`은 모든 Saver의 요청을 등록한 뒤 직렬화 큐와 실행 중인 파일 쓰기가 모두 끝날 때까지 Awaitable로 대기합니다.
+읽는 순서는 `SerializeStage` → `WriteStage` → `SaveData`입니다.
 
 여기서 배치는 일정 시간 동안 모인 요청을 한 번에 꺼내는 단위입니다. 배치 내부의 파일 쓰기를 동시에 실행하는 구조는 아니며, 하나의 워커가 각 파일 저장의 완료를 기다린 뒤 다음 파일을 처리합니다.

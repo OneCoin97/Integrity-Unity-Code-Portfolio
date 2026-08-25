@@ -6,9 +6,9 @@ FOV 갱신은 유닛 이동 중 Unity 메인 스레드에서 반복적으로 실
 
 ## 블록 풀
 
-1. 'ObjectPoolManager.cs' — 프리팹 ID별 Queue, 타입·수량 제한, LRU 정리와 비동기 반환 세대 검증
+1. `ObjectPoolManager.cs` — 프리팹별 재사용 Queue와 수량을 관리하고, 한도를 넘으면 오래 사용하지 않은 풀부터 정리합니다. 맵 전환 전에 예약된 지연 반환이 새로운 풀에 섞이는 것도 차단합니다.
 
 ## 계산 메모리 재사용
 
-- 'HashSetPool.cs' — 생성·제거·유지 영역 계산에 사용하는 임시 HashSet 재사용
-- 'ClassPool.cs' — FOV별 위치와 점유 좌표를 보관하는 FovStreamingState 재사용
+- `HashSetPool.cs` — 생성·제거·유지 영역 계산에 사용하는 임시 HashSet 재사용
+- `ClassPool.cs` — FOV별 위치와 점유 좌표를 보관하는 FovStreamingState 재사용
